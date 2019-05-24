@@ -1,0 +1,17 @@
+<h1>New Heroine Form</h1>
+<% if @heroine.errors %>
+ <ul>
+   <% @heroine.errors.full_messages.each do |msg| %>
+     <li style="color: red;"><%= msg %></li>
+   <% end %>
+ </ul>
+<% end %>
+<%= form_for(@heroine) do |f| %>
+    <%= f.label "Name:" %>
+    <%= f.text_field :name %> <br>
+    <%= f.label "Super Name:"%>
+    <%= f.text_field :super_name %><br>
+    <%= f.label "Super Power" %>
+    <%= f.collection_select(:power_id, Power.all, :id, :name)%> <br>
+    <%= f.submit %>
+<% end %>

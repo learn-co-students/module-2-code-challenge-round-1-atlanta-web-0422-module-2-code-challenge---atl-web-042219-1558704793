@@ -1,0 +1,11 @@
+<h1>Heroine's Page</h1>
+<h2>Name: <%= @heroine.name.titleize %> </h2>
+<h2>Super Name: <%=if @heroine.name.titleize == "Hanaa" 
+                      link_to @heroine.super_name.titleize, "https://i.pinimg.com/564x/05/dc/ff/05dcffccdda03ca3d196dbac170c3823.jpg", target: :_blank
+                    else 
+                      @heroine.name
+                    end %> </h2>
+<h4>Super Power: <%= link_to @heroine.power.name, power_path(@heroine.power) %> </h4>
+<h4>Power Description: <%= @heroine.power.description %></h4> <br>
+
+<%= link_to 'Back to All', heroines_path %> 
