@@ -1,0 +1,23 @@
+<h1><%= @header_msg %></h1>
+
+<ul>
+    <% @heroine.errors.full_messages.each do |error| %>
+        <li style="color: red;"><%= error %></li>
+    <% end %>
+</ul>
+
+
+<%= form_for(@heroine) do |f| %>
+ <label>Name: </label><br>
+ <%= f.text_field :name %><br><br>
+
+ <label>Super Name: </label><br>
+ <%= f.text_field :super_name %><br><br>
+
+<label>Power list: </label><br>
+ <%= f.collection_select(:power_id, Power.all, :id, :name)%><br><br> 
+
+
+ <%= f.submit @button_msg%>
+<% end %>
+<%= button_to "Back", heroines_path, method: :get%>
