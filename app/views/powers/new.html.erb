@@ -1,0 +1,13 @@
+<h1>Create a New Power</h1>
+
+<% if @power.errors.present? %>
+  <% @power.errors.full_messages.each do |msg| %>
+    <li style="color:red;"><%= msg %></li>
+  <% end %>
+<% end %>
+
+<%= form_for @power do |f| %>
+  Name: <%= f.text_field :name %><br>
+  Description : <%= f.text_area :description %><br>
+  <%= f.submit %>
+<% end %>
