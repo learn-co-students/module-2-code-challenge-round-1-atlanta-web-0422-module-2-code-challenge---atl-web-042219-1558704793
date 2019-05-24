@@ -1,0 +1,11 @@
+<h1> Add a New Heroine! </h1>
+<br>
+<br>
+<%= form_for(@heroine) do |f| %>
+  <%= f.text_field(:name, placeholder: "Name") %><br>
+  <br>
+  <%= f.text_field(:super_name, placeholder: "SuperHero Name") %><br>
+  <br>
+  <%= f.collection_select(:power_id, Power.all, :id, :name) %><br><br>
+  <%= f.submit %>
+<% end %>
