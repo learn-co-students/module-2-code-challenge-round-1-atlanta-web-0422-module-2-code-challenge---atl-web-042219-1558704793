@@ -1,0 +1,17 @@
+<h2>Information Page</h2>
+<p>
+  Name:<br>
+    <li><%= @heroine.name%></li>
+</p>
+<p>
+  Super_name:<br>
+    <li><%= @heroine.super_name%></li>
+</p>
+<p>
+  Power:<br>
+    <li><%= link_to @heroine.power.name, power_path(@heroine.power)%></li>
+</p>
+
+<%= button_to 'Back', heroines_path, method: :get%>
+
+
