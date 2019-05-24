@@ -1,6 +1,14 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
+    if params[:q].present?
+      @heroines = @heroines.select { |h| h.power.name == params[:q] }
+      if @heroines.blank?
+        @error = "No heroines with the super power: #{params[:q]}"
+        @heroines = Heroine.all
+      end
+    end
+    
   end
 
   def show
