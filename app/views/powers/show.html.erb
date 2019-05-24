@@ -1,0 +1,12 @@
+<h1><%= @power.name %></h1>
+
+<h3>Description</h3>
+<p><%= @power.description %></p>
+
+<h3>Heroines who have this power:</h3>
+<% @power.heroines.each do |h| %>
+	<%= link_to h.super_name, heroine_path(h) %><br>
+<% end %><br><br>
+
+<%= link_to 'Delete', power_path, method: :delete %><br>
+<%= link_to 'Back to Index', powers_path %>

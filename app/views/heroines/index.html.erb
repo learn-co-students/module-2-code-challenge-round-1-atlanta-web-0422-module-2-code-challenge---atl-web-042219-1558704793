@@ -1,10 +1,27 @@
-<h2>All Heroines</h2>
+<h1>All Heroines</h1>
+
+Search by super power
+<form method="GET" action="<%= heroines_path %>">
+	<input type="text" name="search"> 
+	<input type="submit" value="Search">
+</form>
 
 <ul>
   <% @heroines.each do |heroine| %>
-    <li>
-      <%= heroine.super_name %>
-    </li>
-    <br>
+
+  	<% if params[:search] != nil && params[:search] != '' %>
+  		<% if heroine.power != nil %>
+	  		<% if params[:search] == heroine.power.name %>
+	    		<font size="5"><li><%= link_to heroine.super_name, heroine_path(heroine) %></li></font><br>
+	  		<% end %>
+  		<% end %>
+
+  	<% else %>
+    	<font size="5"><li><%= link_to heroine.super_name, heroine_path(heroine) %></li></font><br>
+  	<% end %>
+
   <% end %>
-</ul>
+</ul><br>
+
+<%= link_to 'Add new heroine', new_heroine_path %><br>
+<%= link_to 'Home', home_path %>
