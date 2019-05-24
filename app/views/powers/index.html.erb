@@ -3,10 +3,12 @@
 <ul>
   <% @powers.each do |power| %>
     <li>
-      <%= power.name %>
+      <%= power.name.titleize %>
       <br>
-      Description: <%= power.description %>
+      Description: <%= power.description.capitalize %>
     </li>
     <br>
   <% end %>
 </ul>
+<%= link_to "Heroines", heroines_path %>
+
