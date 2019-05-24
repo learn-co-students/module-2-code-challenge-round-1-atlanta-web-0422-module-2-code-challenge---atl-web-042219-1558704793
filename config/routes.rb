@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :powers, only: [:index]
-  resources :heroines, only: [:index]  
+
+  resources :powers, except: [:edit, :update]
+  resources :heroines
+
+  root 'application#index', as: 'home'
 end

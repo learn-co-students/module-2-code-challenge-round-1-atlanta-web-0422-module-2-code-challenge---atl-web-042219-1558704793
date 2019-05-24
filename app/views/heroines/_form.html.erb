@@ -1,0 +1,22 @@
+<h1><%= @header_msg %></h1>
+
+<ul>
+  <% @heroine.errors.full_messages.each do |error| %>
+    <li style="color: red;"><%= error %></li>
+  <% end %>
+</ul>
+
+<%= form_for @heroine do |f| %>
+
+	Name<br>
+	<%= f.text_field :name %><br><br>
+
+	Super name<br>
+	<%= f.text_field :super_name %><br><br>
+
+	<% if Power.all.size > 0 %>
+		<%= collection_select :heroine, :power_id, Power.all, :id, :name %><br><br>
+	<% end %>
+
+	<%= f.submit @button_msg %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1><%= @heroine.name %> aka <%= @heroine.super_name %></h1>
+
+<font size="5">
+	<% if @heroine.power == nil %>
+		<%= @heroine.super_name %> currently does not have a super power on record.
+	<% else %>
+		<%= @heroine.super_name %>'s super power is: <%= link_to @heroine.power.name, power_path(@heroine.power) %>
+	<% end %>
+</font>
+
+<br><br>
+<%= link_to 'Edit', edit_heroine_path %><br>
+<%= link_to 'Delete', heroine_path, method: :delete %><br>
+<%= link_to 'Back to Index', heroines_path %>
