@@ -20,9 +20,10 @@
   </li><br>
 
   <li><%= f.label :power_id %>
-  <%= f.collection_select :power_id, Power.all, :id, :name %>
+  <%= f.collection_select :power_id, Power.all, :id, :name, prompt: true %>
   </li><br>
 
   <%= f.submit %>
 </ul>
 <% end %>
+<%= link_to "Cancel", heroines_path %>
