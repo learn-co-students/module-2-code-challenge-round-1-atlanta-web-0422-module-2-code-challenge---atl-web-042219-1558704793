@@ -1,0 +1,29 @@
+<h1>Create a new Heroine</h1>
+
+<% if @heroine.errors.any? %>
+ <div id="error_explanation">
+     <h2>
+       <%= pluralize(@heroine.errors.count, "error") %>
+       prohibited this post from being saved:
+     </h2>
+  
+     <ul>
+     <% @heroine.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+
+
+
+<%= form_for(@heroine) do |f| %>
+<label>Name:</label>
+<%= f.text_field(:name)%>
+<label>Super Name:</label>
+<%= f.text_field(:super_name)%>
+<label>Power:</label>
+<%= f.collection_select(:power_id, Power.all, :id, :name)%>
+<%= f.submit "Submit New Heroine"%>
+<%end%>
