@@ -1,0 +1,20 @@
+<ul><h2>Information about <%=@heroine.name%></h2></ul>
+
+<p>
+  Name:<br>
+    <ul><li><%= @heroine.name%></li></ul>
+</p>
+<p>
+  Super name:<br>
+    <ul><li><%= @heroine.super_name%></li></ul>
+</p>
+<p>
+  Power:<br>
+    <ul><li><%= link_to @heroine.power.name, power_path(@heroine.power)%></li></ul>
+</p>
+
+<%= button_to 'Back', heroines_path, method: :get%>
+
+
+
+

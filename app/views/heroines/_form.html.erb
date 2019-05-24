@@ -1,0 +1,22 @@
+<% if @heroine.errors.any?%>
+<h2>Error(s) Occured:</h2>
+<p>
+<% @heroine.errors.full_messages.each do |msg|%>
+<li><%= msg%></li>
+<%end%>
+</p>
+<%end%>
+<%=form_for(@heroine) do |t|%>
+<p>
+<%=t.label :name%>
+<%= t.text_field :name%>
+</p>
+<p>
+<%=t.label :super_name%>
+<%=t.text_field :super_name%>
+</p>
+<p>
+Choose a Power: <%=t.collection_select :power_id,Power.all,:id,:name%>
+</p>
+<%=t.submit%> <%=button_to 'Cancel', heroines_path, method: :get%>
+<%end%>
